@@ -22,7 +22,7 @@
                 <dd><p class="games-base-description">{{paytype.country.code}}</p></dd>
 
                 <dt><h3 class="games-base-names">Countries:</p></dt>
-                    {% for i in paytype_view.countries.all %}
+                    {% for i in paytype.countries.all %}
                         <dd><p class="games-base-description">{{i.code}}</p></dd>
                     {% endfor %}
 
@@ -30,12 +30,12 @@
                 <dd><p class="games-base-description">{{paytype.not_country.code}}</p></dd>
 
                 <dt><h3 class="games-base-names">NotCountries:</p></dt>
-                    {% for i in paytype_view.not_countries.all %}
+                    {% for i in paytype.not_countries.all %}
                         <dd><p class="games-base-description">{{i.code}}</p></dd>
                     {% endfor %}
 
                 <dt><h3 class="games-base-names">Feature:</p></dt>
-                <dd><p class="games-base-description">{{paytype.feature}}</p></dd>
+                <dd><p class="games-base-description">{% if paytype.feature == None %} {% else %}  {% endif %} </p></dd>
 
                 <dt><h3 class="games-base-names">Start Date:</p></dt>
                 <dd><p class="games-base-description">{{paytype.start_date}}</p></dd>

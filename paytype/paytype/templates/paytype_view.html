@@ -14,7 +14,7 @@
                 {% for i in contacts %}
 
                     <div class="buttons">
-                        <a href="{% url 'catalog:paytype_view_id' i.id %}"><h3 class="games-base-names">{{i.description}}</a>
+                        <a href="{% url 'catalog:paytype_view_id' i.id %}"><h3 class="games-base-names">{{ i.p_type.payment_type }} {{i.p_code.payment_code}}</a>
                     </div>
 
                 {% endfor %}
@@ -25,7 +25,7 @@
                         {% endif %}
 
                         <span class="current">
-                            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+                            <h5 class="games-base-title1">Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}</h5>
                         </span>
 
                         {% if contacts.has_next %}

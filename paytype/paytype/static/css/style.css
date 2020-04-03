@@ -51,6 +51,21 @@ p {
   outline:none;
 }
 
+.selectors1 {
+  width: 619px;
+  height: 70px;
+  margin-bottom: 16px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+
+  color: #f0d8d9;
+
+  background-color: #d6564f;
+  border: none;
+  border-radius: 5px;
+  outline:none;
+}
+
 .games-base {
   padding-top: 60px;
 
@@ -64,6 +79,13 @@ p {
   font-weight: 900;
   font-size: 30px;
   color: #f0d8d9;
+}
+
+.games-base-title1 {
+
+  font-weight: 900;
+  font-size: 14px;
+  color: #000000;
 }
 
 .games-base-names {
