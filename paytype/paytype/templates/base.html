@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Справочник{% endblock %}</title>
+    {% block js %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lato-font.css' %}">
+</head>
+
+<body>
+<main>
+    <section class="games-base">
+        <div class="container">
+            <h2 class="games-base-title">{% block page_title %}{% endblock %}</h2>
+            {% block add_button %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content"></div>
+        </div>
+    </footer>
+</main>
+</body>
+
+</html>

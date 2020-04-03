@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Add{% endblock %}
+
+{% block page_title %}Add PayType{% endblock %}
+
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="wrapper">
+        <form action="{% url 'catalog:paytype_add_add' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="description" placeholder="Description" minlength="1">
+            <select class="selectors" name="p_type">
+                {% for i in p_type %}
+                    <option>{{i.payment_type}}</option>
+                {% endfor %}
+            </select>
+            <select class="selectors" name="route">
+                <option disabled selected value>------</option>
+                <option>ввоз</option>
+                <option>вывоз</option>
+                <option>транзит</option>
+            </select>
+            <select class="selectors" name="p_code">
+                {% for i in p_code %}
+                    <option>{{i.payment_code}}</option>
+                {% endfor %}
+            </select>
+            <select class="selectors" name="country">
+                <option disabled selected value>------</option>
+                {% for i in country %}
+                    <option>{{i.code}}</option>
+                {% endfor %}
+            </select>
+            <select class="selectors" name="countries" multiple>
+                {% for i in country %}
+                    <option>{{i.code}}</option>
+                {% endfor %}
+            </select>
+            <select class="selectors" name="not_country">
+                <option disabled selected value>------</option>
+                {% for i in country %}
+                    <option>{{i.code}}</option>
+                {% endfor %}
+            </select>
+            <select class="selectors" name="not_countries" multiple>
+                {% for i in country %}
+                    <option>{{i.code}}</option>
+                {% endfor %}
+            </select>
+            <select class="selectors" name="feature">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+            </select>
+            <input type="date" data-date="" data-date-format="DD/MM/YYYY" name="start_date"
+               value="2015-15-05"
+               min="1900-01-01" max="2030-31-12" required>
+            <input type="date" data-date="" data-date-format="DD/MM/YYYY" name="finish_date"
+                value="2015-15-05"
+                min="1900-01-01" max="2030-31-12" required>
+            <input type="text" name="document" placeholder="Document" minlength="1">
+            <input class="games-base-button" type="submit" value="Submit">
+        </form>
+    </div>
+    <div>
+        <input class="games-base-button" type="submit" value="Back" onClick='location.href="{% url 'catalog:paytype_view' %}"'>
+        <textarea name="description" cols="30" rows="12"></textarea>
+    </div>
+
+{% endblock %}

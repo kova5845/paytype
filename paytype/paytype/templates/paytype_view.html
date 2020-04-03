@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block page_title %}PayType List{% endblock %}
+
+{% block add_button %}
+    <input class="games-base-button" type="submit" value="Add" onClick='location.href="{% url 'catalog:paytype_add' %}"'>
+{% endblock %}
+
+{% block content %}
+
+    {% if contacts %}
+        <div class="wrapper">
+            <form action="#" method="get">
+                {% for i in contacts %}
+
+                    <div class="buttons">
+                        <a href="{% url 'catalog:paytype_view_id' i.id %}"><h3 class="games-base-names">{{i.description}}</a>
+                    </div>
+
+                {% endfor %}
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if contacts.has_previous %}
+                            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+                        </span>
+
+                        {% if contacts.has_next %}
+                            <a href="?page={{ contacts.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+                <textarea name="description" cols="30" rows="12"></textarea>
+            </form>
+        </div>
+    {% endif %}
+
+{% endblock %}
